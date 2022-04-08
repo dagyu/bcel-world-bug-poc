@@ -1,0 +1,267 @@
+---- AspectJ Properties ---
+AspectJ Compiler 1.9.9 built on Thursday Mar 24, 2022 at 03:38:05 PDT
+---- Dump Properties ---
+Dump file: ajcore.20220408.211124.390.txt
+Dump reason: abort
+Dump on exception: true
+Dump at exit condition: abort
+---- System Properties ---
+java.specification.version=15
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+sun.jnu.encoding=UTF-8
+java.runtime.version=15.0.1+9-18
+java.class.path=/home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/classes/java/main:/home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main:/home/dagyu95/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjtools/1.9.9/25818f725df17f93934af9dbfaeae5d6209d7c6/aspectjtools-1.9.9.jar
+user.name=dagyu95
+java.vm.vendor=Oracle Corporation
+path.separator=:
+sun.arch.data.model=64
+os.version=5.4.0-107-generic
+user.variant=
+java.runtime.name=OpenJDK Runtime Environment
+file.encoding=UTF-8
+java.vendor.url=https://java.oracle.com/
+user.timezone=Europe/Rome
+java.vm.name=OpenJDK 64-Bit Server VM
+java.vm.specification.version=15
+os.name=Linux
+user.country=US
+sun.java.launcher=SUN_STANDARD
+sun.boot.library.path=/usr/lib/jvm/jdk-15.0.1/lib
+sun.java.command=bcel.world.bug.poc.BcelWorldBugPoc
+java.vendor.url.bug=https://bugreport.java.com/bugreport/
+java.io.tmpdir=/tmp
+jdk.debug=release
+sun.cpu.endian=little
+java.version=15.0.1
+user.home=/home/dagyu95
+user.dir=/home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc
+user.language=en
+os.arch=amd64
+java.specification.vendor=Oracle Corporation
+java.vm.specification.name=Java Virtual Machine Specification
+java.version.date=2020-10-20
+java.home=/usr/lib/jvm/jdk-15.0.1
+file.separator=/
+java.vm.compressedOopsMode=Zero based
+line.separator=
+
+java.library.path=/opt/ros/galactic/opt/yaml_cpp_vendor/lib:/opt/ros/galactic/opt/rviz_ogre_vendor/lib:/opt/ros/galactic/lib/x86_64-linux-gnu:/opt/ros/galactic/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+java.vm.info=mixed mode, sharing
+java.vm.specification.vendor=Oracle Corporation
+java.specification.name=Java Platform API Specification
+java.vendor=Oracle Corporation
+java.vm.version=15.0.1+9-18
+sun.io.unicode.encoding=UnicodeLittle
+java.class.version=59.0
+---- Command Line ---
+-sourceroots
+/home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main/bugged
+---- Full Classpath ---
+/usr/lib/jvm/jdk-15.0.1/lib/jrt-fs.jar(107503 bytes)
+/home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/classes/java/main(1 entries)
+/home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main(1 entries)
+/home/dagyu95/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjtools/1.9.9/25818f725df17f93934af9dbfaeae5d6209d7c6/aspectjtools-1.9.9.jar(14621202 bytes)
+---- Compiler Messages ---
+info Pipelining compilation
+info compiling /home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main/bugged/OptimizeFactorialAspect.aj
+info weaver operating in reweavable mode.  Need to verify any required types exist.
+info woven aspect bugged.OptimizeFactorialAspect (from /home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main/bugged/OptimizeFactorialAspect.aj)
+info compiling /home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main/bugged/TestFactorial.java
+abort trouble in: 
+public class bugged.TestFactorial extends java.lang.Object:
+  public void <init>():
+                    ALOAD_0     // Lbugged/TestFactorial; this   (line 5)
+                    INVOKESPECIAL java.lang.Object.<init> ()V
+    constructor-execution(void bugged.TestFactorial.<init>())
+    |               RETURN
+    constructor-execution(void bugged.TestFactorial.<init>())
+  end public void <init>()
+
+  public static void main(String[])    org.aspectj.weaver.MethodDeclarationLineNumber: 6:88
+:
+    method-execution(void bugged.TestFactorial.main(java.lang.String[]))
+    |               GETSTATIC java.lang.System.out Ljava/io/PrintStream;   (line 7)
+    |               NEW java.lang.StringBuffer
+    |               DUP
+    |               LDC "Result: "
+    |               INVOKESPECIAL java.lang.StringBuffer.<init> (Ljava/lang/String;)V
+    |               ICONST_5
+    |               ISTORE_1
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | |             GETSTATIC bugged.OptimizeFactorialAspect.ajc$cflowCounter$0 Lorg/aspectj/runtime/internal/CFlowCounter;
+    | |             INVOKEVIRTUAL org.aspectj.runtime.internal.CFlowCounter.inc ()V
+    | | catch java.lang.Throwable -> E0
+    | | |           ILOAD_1
+    | | |           INVOKESTATIC bugged.TestFactorial.factorial (I)J
+    | | catch java.lang.Throwable -> E0
+    | |             GOTO L0
+    | |         E0: ASTORE_3
+    | |             GETSTATIC bugged.OptimizeFactorialAspect.ajc$cflowCounter$0 Lorg/aspectj/runtime/internal/CFlowCounter;
+    | |             INVOKEVIRTUAL org.aspectj.runtime.internal.CFlowCounter.dec ()V
+    | |             ALOAD_3
+    | |             ATHROW
+    | |         L0: NOP
+    | |             GETSTATIC bugged.OptimizeFactorialAspect.ajc$cflowCounter$0 Lorg/aspectj/runtime/internal/CFlowCounter;
+    | |             INVOKEVIRTUAL org.aspectj.runtime.internal.CFlowCounter.dec ()V
+    | |             NOP
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (J)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    |               LDC "\n"
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (Ljava/lang/String;)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.toString ()Ljava/lang/String;
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    | |             INVOKEVIRTUAL java.io.PrintStream.println (Ljava/lang/String;)V
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    |               GETSTATIC java.lang.System.out Ljava/io/PrintStream;   (line 8)
+    |               NEW java.lang.StringBuffer
+    |               DUP
+    |               LDC "Result: "
+    |               INVOKESPECIAL java.lang.StringBuffer.<init> (Ljava/lang/String;)V
+    |               BIPUSH 10
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | |             INVOKESTATIC bugged.TestFactorial.factorial (I)J
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (J)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    |               LDC "\n"
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (Ljava/lang/String;)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.toString ()Ljava/lang/String;
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    | |             INVOKEVIRTUAL java.io.PrintStream.println (Ljava/lang/String;)V
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    |               GETSTATIC java.lang.System.out Ljava/io/PrintStream;   (line 9)
+    |               NEW java.lang.StringBuffer
+    |               DUP
+    |               LDC "Result: "
+    |               INVOKESPECIAL java.lang.StringBuffer.<init> (Ljava/lang/String;)V
+    |               BIPUSH 15
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | |             INVOKESTATIC bugged.TestFactorial.factorial (I)J
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (J)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    |               LDC "\n"
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (Ljava/lang/String;)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.toString ()Ljava/lang/String;
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    | |             INVOKEVIRTUAL java.io.PrintStream.println (Ljava/lang/String;)V
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    |               GETSTATIC java.lang.System.out Ljava/io/PrintStream;   (line 10)
+    |               NEW java.lang.StringBuffer
+    |               DUP
+    |               LDC "Result: "
+    |               INVOKESPECIAL java.lang.StringBuffer.<init> (Ljava/lang/String;)V
+    |               BIPUSH 55
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | |             INVOKESTATIC bugged.TestFactorial.factorial (I)J
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (J)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    |               LDC "\n"
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (Ljava/lang/String;)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.toString ()Ljava/lang/String;
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    | |             INVOKEVIRTUAL java.io.PrintStream.println (Ljava/lang/String;)V
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    |               GETSTATIC java.lang.System.out Ljava/io/PrintStream;   (line 11)
+    |               NEW java.lang.StringBuffer
+    |               DUP
+    |               LDC "Result: "
+    |               INVOKESPECIAL java.lang.StringBuffer.<init> (Ljava/lang/String;)V
+    |               BIPUSH 100
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | |             INVOKESTATIC bugged.TestFactorial.factorial (I)J
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (J)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(long))
+    |               LDC "\n"
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.append (Ljava/lang/String;)Ljava/lang/StringBuffer;
+    | method-call(java.lang.StringBuffer java.lang.StringBuffer.append(java.lang.String))
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | |             INVOKEVIRTUAL java.lang.StringBuffer.toString ()Ljava/lang/String;
+    | method-call(java.lang.String java.lang.StringBuffer.toString())
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    | |             INVOKEVIRTUAL java.io.PrintStream.println (Ljava/lang/String;)V
+    | method-call(void java.io.PrintStream.println(java.lang.String))
+    |               RETURN   (line 12)
+    method-execution(void bugged.TestFactorial.main(java.lang.String[]))
+  end public static void main(String[])
+
+  public static long factorial(int)    org.aspectj.weaver.MethodDeclarationLineNumber: 14:431
+:
+    method-execution(long bugged.TestFactorial.factorial(int))
+    |               ILOAD_0     // I n   (line 15)
+    |               IFNE L0
+    |               LCONST_1
+    |               LRETURN
+    |           L0: ILOAD_0     // I n   (line 16)
+    |               I2L
+    |               ILOAD_0     // I n
+    |               ICONST_1
+    |               ISUB
+    | method-call(long bugged.TestFactorial.factorial(int))
+    | |             INVOKESTATIC bugged.TestFactorial.factorial (I)J
+    | method-call(long bugged.TestFactorial.factorial(int))
+    |               LMUL
+    |               LRETURN
+    method-execution(long bugged.TestFactorial.factorial(int))
+  end public static long factorial(int)
+
+end public class bugged.TestFactorial
+ -- (NullPointerException) Cannot invoke "org.aspectj.asm.IRelationship$Kind.getName()" because the return value of "org.aspectj.weaver.bcel.BcelWorld.determineRelKind(org.aspectj.weaver.ShadowMunger)" is null
+Cannot invoke "org.aspectj.asm.IRelationship$Kind.getName()" because the return value of "org.aspectj.weaver.bcel.BcelWorld.determineRelKind(org.aspectj.weaver.ShadowMunger)" is null
+java.lang.NullPointerException: Cannot invoke "org.aspectj.asm.IRelationship$Kind.getName()" because the return value of "org.aspectj.weaver.bcel.BcelWorld.determineRelKind(org.aspectj.weaver.ShadowMunger)" is null
+	at org.aspectj.weaver.bcel.BcelWorld.reportMatch(BcelWorld.java:135)
+	at org.aspectj.weaver.Shadow.implementMungers(Shadow.java:646)
+	at org.aspectj.weaver.Shadow.implement(Shadow.java:547)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.implement(BcelClassWeaver.java:3361)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.weave(BcelClassWeaver.java:499)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.weave(BcelClassWeaver.java:103)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1706)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveWithoutDump(BcelWeaver.java:1650)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveAndNotify(BcelWeaver.java:1417)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1192)
+	at org.aspectj.ajdt.internal.compiler.AjPipeliningCompilerAdapter.weaveQueuedEntries(AjPipeliningCompilerAdapter.java:510)
+	at org.aspectj.ajdt.internal.compiler.AjPipeliningCompilerAdapter.queueForWeaving(AjPipeliningCompilerAdapter.java:446)
+	at org.aspectj.ajdt.internal.compiler.AjPipeliningCompilerAdapter.afterProcessing(AjPipeliningCompilerAdapter.java:431)
+	at org.aspectj.ajdt.internal.compiler.CompilerAdapter.ajc$after$org_aspectj_ajdt_internal_compiler_CompilerAdapter$5$6b855184(CompilerAdapter.aj:104)
+	at org.aspectj.org.eclipse.jdt.internal.compiler.Compiler.process(Compiler.java:943)
+	at org.aspectj.org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:576)
+	at org.aspectj.org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:476)
+	at org.aspectj.org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:427)
+	at org.aspectj.ajdt.internal.core.builder.AjBuildManager.performCompilation(AjBuildManager.java:1096)
+	at org.aspectj.ajdt.internal.core.builder.AjBuildManager.performBuild(AjBuildManager.java:275)
+	at org.aspectj.ajdt.internal.core.builder.AjBuildManager.performBuild(AjBuildManager.java:224)
+	at org.aspectj.ajdt.internal.core.builder.AjBuildManager.incrementalBuild(AjBuildManager.java:192)
+	at org.aspectj.ajdt.ajc.AjdtCommand.doCommand(AjdtCommand.java:102)
+	at org.aspectj.ajdt.ajc.AjdtCommand.repeatCommand(AjdtCommand.java:62)
+	at bcel.world.bug.poc.AjCompiler.compile(AjCompiler.java:40)
+	at bcel.world.bug.poc.BcelWorldBugPoc.main(BcelWorldBugPoc.java:17)
+
+info woven class bugged.TestFactorial (from /home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main/bugged/TestFactorial.java)
+warning at /home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main/bugged/OptimizeFactorialAspect.aj:24::0 advice defined in bugged.OptimizeFactorialAspect has not been applied [Xlint:adviceDidNotMatch]
+warning at /home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main/bugged/OptimizeFactorialAspect.aj:15::0 advice defined in bugged.OptimizeFactorialAspect has not been applied [Xlint:adviceDidNotMatch]
+warning at /home/dagyu95/Applications/eclipse/java-2020-12/eclipse-workspace/bcel-world-bug-poc/build/resources/main/bugged/OptimizeFactorialAspect.aj:11::0 advice defined in bugged.OptimizeFactorialAspect has not been applied [Xlint:adviceDidNotMatch]
